@@ -631,6 +631,7 @@ async function commentSubmit (event, request) {
 
 // 保存评论
 async function save (data) {
+  data.url = data.url.replace(/index\.html$/, '');
   await db
     .collection('comment')
     .insertOne(data)
